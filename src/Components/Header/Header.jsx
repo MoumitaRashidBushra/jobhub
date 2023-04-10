@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import JobCategoryList from '../JobCategoryList/JobCategoryList';
 
 const Header = () => {
+
+    const [jobCategorys, setJobCategory] = useState([])
+    useEffect(() => {
+        fetch('jobcategory.json')
+            .then(res => res.json())
+            .then(data => setJobCategory(data))
+    }, [])
+
+
+
+
     return (
         <div>
             <section>
@@ -22,7 +33,24 @@ const Header = () => {
                 </div>
             </section>
             <section>
-                <JobCategoryList></JobCategoryList>
+                <div className='lg:container mx-auto px-5 lg:px-20 mb-10 '>
+                    <div>
+                        <h1 className='text-2xl lg:text-5xl text-center font-semibold'>Job Category List</h1>
+                        <p className='text-center pt-1 lg:pt-3 pb-6'>Explore thousands of job opportunities with all the information you need. Its your future</p>
+                    </div>
+
+                    <div className='grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-4'>
+                        {
+                            jobCategorys.map(jobCategory => <JobCategoryList
+                                key={jobCategory}
+                                jobCategory={jobCategory}
+                            ></JobCategoryList>)
+
+                        }
+
+                    </div>
+
+                </div>
             </section>
 
         </div>
