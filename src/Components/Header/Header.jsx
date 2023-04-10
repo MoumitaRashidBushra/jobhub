@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import JobCategoryList from '../JobCategoryList/JobCategoryList';
+import { useLoaderData } from 'react-router-dom';
+import JobFeature from '../JobFeature/JobFeature';
 
 const Header = () => {
 
@@ -9,6 +11,9 @@ const Header = () => {
             .then(res => res.json())
             .then(data => setJobCategory(data))
     }, [])
+
+    const featureds = useLoaderData();
+    console.log(featureds);
 
 
 
@@ -42,14 +47,38 @@ const Header = () => {
                     <div className='grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-4'>
                         {
                             jobCategorys.map(jobCategory => <JobCategoryList
-                                key={jobCategory}
+                                key={jobCategory.id}
                                 jobCategory={jobCategory}
                             ></JobCategoryList>)
-
                         }
 
                     </div>
 
+                </div>
+            </section>
+
+            <section>
+                <div className='lg:container mx-auto px-5 lg:px-20 mb-10  '>
+                    <div>
+                        <h1 className='text-2xl lg:text-5xl text-center font-semibold mt-10'>Featured Jobs</h1>
+                        <p className='text-center pt-1 lg:pt-3 pb-6'>Explore thousands of job opportunities with all the information you need. Its your future</p>
+                    </div>
+
+                    <div className='grid grid-cols-1 lg:grid-cols-2 gap-8'>
+
+                        {
+
+                            featureds.map(jobFeature => <JobFeature
+                                key={jobFeature.id}
+                                jobFeature={jobFeature}
+                            ></JobFeature>)
+
+                        }
+                    </div>
+
+                </div>
+                <div className='text-center mb-11'>
+                    <a className="btn btn-info  text-white">See All Jobs</a>
                 </div>
             </section>
 
