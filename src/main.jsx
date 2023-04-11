@@ -12,6 +12,7 @@ import Apply from './Components/Jobs/Apply';
 import BlogP from './Components/Blog/BlogP';
 import Header from './Components/Header/Header';
 import JobCategoryList from './Components/JobCategoryList/JobCategoryList';
+import ViewDetials from './Components/ViewDetials/ViewDetials';
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,12 @@ const router = createBrowserRouter([
         path: '/',
         element: <Header></Header>,
         loader: () => fetch('featured.json')
+      },
+      {
+        path: '/:jID',
+        element: <ViewDetials></ViewDetials>,
+        loader: ({ params }) => fetch(`featured.json/${params.jID}`)
+        //loader: ({ params }) => console.log(params.jID)
       },
       {
         path: 'statistics',

@@ -1,6 +1,9 @@
 import React from 'react';
+import { useLoaderData } from 'react-router-dom';
 
-const Apply = () => {
+const ViewDetials = () => {
+    const details = useLoaderData();
+    console.log(details)
     return (
         <div>
             <div className=' bg-slate-100 mb-14 '>
@@ -11,4 +14,4 @@ const Apply = () => {
     );
 };
 
-export default Apply;
+export default ViewDetials;

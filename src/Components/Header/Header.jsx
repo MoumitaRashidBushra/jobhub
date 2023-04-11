@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import JobCategoryList from '../JobCategoryList/JobCategoryList';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import JobFeature from '../JobFeature/JobFeature';
 
 const Header = () => {
@@ -14,6 +14,12 @@ const Header = () => {
 
     const featureds = useLoaderData();
     console.log(featureds);
+    // const [jobFeatures, setJobFeature] = useState([])
+    // useEffect(() => {
+    //     fetch('featured.json')
+    //         .then(res => res.json())
+    //         .then(data => setJobFeature(data))
+    // }, [])
 
 
 
