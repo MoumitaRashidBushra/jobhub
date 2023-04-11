@@ -16,8 +16,17 @@ const ViewDetials = () => {
             setJobs(storeData);
         }
     }, [])
+    const [apply, setApply] = useState("")
+    const handleApply = (getId) => {
+        const preApply = JSON.parse(localStorage.getItem('applyId'));
+        if (preApply) {
 
-
+        }
+        else {
+            localStorage.setItem('applyId', getId)
+            setApply(getId);
+        }
+    }
 
     //console.log(jobs)
 
@@ -66,7 +75,7 @@ const ViewDetials = () => {
                         </div>
                     </div>
                     <div className='text-center'>
-                        <button className="btn no-animation btn-wide btn-info text-white px-12">Apply Now</button>
+                        <button onClick={() => handleApply(jobs.id)} className="btn no-animation btn-wide btn-info text-white px-12">Apply Now</button>
                     </div>
 
                 </div>
