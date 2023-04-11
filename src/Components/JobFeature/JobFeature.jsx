@@ -32,7 +32,7 @@ const JobFeature = ({ data }) => {
                 </div>
                 <div>
 
-                    <Link to={`/${id}`}><button className="btn btn-info  text-white"> View Details</button></Link>
+                    <Link to={`/job/${id}`}><button className="btn btn-info  text-white"> View Details</button></Link>
                 </div>
             </div>
         </div>

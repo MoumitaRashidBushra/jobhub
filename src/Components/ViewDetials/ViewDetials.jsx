@@ -16,16 +16,26 @@ const ViewDetials = () => {
             setJobs(storeData);
         }
     }, [])
-    const [apply, setApply] = useState("")
-    const handleApply = (getId) => {
-        const preApply = JSON.parse(localStorage.getItem('applyId'));
-        if (preApply) {
 
+    const handleApply = (id) => {
+        let cardItem = [];
+        console.log(id)
+        const preApply = localStorage.getItem('applyId');
+        if (preApply) {
+            cardItem = JSON.parse(preApply)
+            let exist = cardItem.find(ct => ct === id);
+            if (exist) {
+                alert('already add');
+            }
+            else {
+                cardItem.push(id);
+
+            }
         }
         else {
-            localStorage.setItem('applyId', getId)
-            setApply(getId);
+            cardItem.push(id);
         }
+        localStorage.setItem('applyId', JSON.stringify(cardItem));
     }
 
     //console.log(jobs)
