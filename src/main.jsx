@@ -20,18 +20,18 @@ const router = createBrowserRouter([
     path: "/",
     element: <Home></Home>,
     errorElement: <ErrorPage></ErrorPage>,
+    loader: () => fetch('featured.json'),
     children: [
       {
         path: '/',
         element: <Header></Header>,
-        loader: () => fetch('featured.json')
+
       },
       {
         path: '/:id',
         element: <ViewDetials></ViewDetials>,
         loader: () => fetch('/featured.json')
-        // loader: ({ params }) => fetch(`featured.json/${params.jID}`)
-        //loader: ({ params }) => console.log(params.jID)
+
       },
       {
         path: 'statistics',

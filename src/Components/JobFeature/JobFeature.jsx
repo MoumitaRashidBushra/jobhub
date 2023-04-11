@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const JobFeature = ({ jobFeature }) => {
-    const { id, companylogo, company, companyname, remoteoronsite, time, salary, location } = jobFeature;
+const JobFeature = ({ data }) => {
+    const { id, companylogo, company, companyname, remoteoronsite, time, salary, location } = data;
+    console.log(data);
     return (
         <div className="card w-full  bg-slate-100 ">
             <div className='p-4 lg:px-8'>

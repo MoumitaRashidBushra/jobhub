@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import JobCategoryList from '../JobCategoryList/JobCategoryList';
 import { Link, useLoaderData } from 'react-router-dom';
 import JobFeature from '../JobFeature/JobFeature';
 import Footer from '../Footer/Footer';
+import { JobContext } from '../Home/Home';
 
 const Header = () => {
 
@@ -14,18 +15,17 @@ const Header = () => {
     }, [])
 
 
-    const featureds = useLoaderData();
-    // if (featureds.length > 4) {
-    //     featureds = featureds.slice(0, 4);
-    //     // showAll.classList.remove('d-none');
-    // }
-    console.log(featureds);
-    // const [jobFeatures, setJobFeature] = useState([])
-    // useEffect(() => {
-    //     fetch('featured.json')
-    //         .then(res => res.json())
-    //         .then(data => setJobFeature(data))
-    // }, [])
+
+
+    const allData = useContext(JobContext);
+    const [data, setData] = useState(allData.slice(0, 4));
+    const [toggle, setToggle] = useState(true);
+
+    const showAllJobs = () => {
+        setData(allData);
+        setToggle(false);
+    }
+    console.log(data)
 
 
 
@@ -83,18 +83,25 @@ const Header = () => {
 
                         {
 
-                            featureds.map(jobFeature => <JobFeature
-                                key={jobFeature.id}
-                                jobFeature={jobFeature}
+                            data.map(dt => <JobFeature
+                                key={dt.id}
+                                data={dt}
                             ></JobFeature>)
 
                         }
                     </div>
 
                 </div>
-                <div className='text-center mb-11'>
-                    <a className="btn btn-info  text-white">See All Jobs</a>
-                </div>
+                {
+                    toggle && (
+                        <div className='text-center mb-11'>
+
+                            <button onClick={() => showAllJobs()}
+                                className="btn btn-info  text-white">See All Jobs</button>
+                        </div>
+                    )
+                }
+
             </section>
 
             <section>
