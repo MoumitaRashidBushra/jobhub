@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 import Footer from '../Footer/Footer';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faVoicemail, faMoneyBill, faPhone } from '@fortawesome/free-solid-svg-icons'
 
 const ViewDetials = () => {
     const [jobs, setJobs] = useState({})
@@ -78,14 +80,14 @@ const ViewDetials = () => {
                                 <hr />
                             </div>
                             <div>
-                                <p className='pt-4 pb-2 '><span className='font-semibold'>Phone :</span> {jobs.phone}</p>
-                                <p className=' pb-2 '><span className='font-semibold'>Email : </span> {jobs.email}</p>
+                                <p className='pt-4 pb-2 '><span className='font-semibold'> <FontAwesomeIcon icon={faPhone} /> Phone :</span> {jobs.phone}</p>
+                                <p className=' pb-2 '><span className='font-semibold'><FontAwesomeIcon icon={faVoicemail} /> Email : </span> {jobs.email}</p>
                                 <p className=' pb-8 '><span className='font-semibold'>Address :</span> {jobs.location}</p>
                             </div>
                         </div>
                     </div>
                     <div className='text-center'>
-                        <button onClick={() => handleApply(jobs.id)} className="btn no-animation btn-wide btn-info text-white px-12">Apply Now</button>
+                        <button onClick={() => handleApply(jobs.id)} className="btn  btn-wide btn-info text-white px-12">Apply Now</button>
                     </div>
 
                 </div>

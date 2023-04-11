@@ -55,7 +55,7 @@ const Apply = () => {
 
                     </div>
                 </div>
-                <div className='grid grid-cols-1  items-center gap-6   border border-indigo-600'>
+                <div className='grid grid-cols-1  items-center gap-6   '>
                     {
                         filter.map(job => <SingleJob key={job.id}
                             job={job}

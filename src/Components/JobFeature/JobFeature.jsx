@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMoneyBill, faLocation } from '@fortawesome/free-solid-svg-icons'
 
 const JobFeature = ({ data }) => {
     const { id, companylogo, company, companyname, remoteoronsite, time, salary, location } = data;
@@ -23,10 +25,10 @@ const JobFeature = ({ data }) => {
                 </div>
                 <div className='flex gap-14 mb-4'>
                     <div>
-                        {location}
+                        <FontAwesomeIcon icon={faLocation} /> {location}
                     </div>
                     <div>
-                        {salary}
+                        <FontAwesomeIcon icon={faMoneyBill} /> Salary:{salary}
                     </div>
 
                 </div>

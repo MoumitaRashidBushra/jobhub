@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMoneyBill, faLocation } from '@fortawesome/free-solid-svg-icons'
 
 const SingleJob = ({ job }) => {
     console.log(job)
     return (
         <div>
-            <div className='flex justify-between items-center'>
+            <div className='flex justify-between items-center border border-indigo-600'>
 
                 <div className='flex gap-1 items-center' >
                     <div className='p-4 '>
@@ -26,10 +28,10 @@ const SingleJob = ({ job }) => {
                         </div>
                         <div className='flex gap-14 mb-4'>
                             <div>
-                                {job.location}
+                                <FontAwesomeIcon icon={faLocation} /> {job.location}
                             </div>
                             <div>
-                                Salary : {job.salary}
+                                <FontAwesomeIcon icon={faMoneyBill} /> Salary : {job.salary}
                             </div>
 
                         </div>
