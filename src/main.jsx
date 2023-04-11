@@ -13,11 +13,13 @@ import BlogP from './Components/Blog/BlogP';
 import Header from './Components/Header/Header';
 import JobCategoryList from './Components/JobCategoryList/JobCategoryList';
 import ViewDetials from './Components/ViewDetials/ViewDetials';
+import ErrorPage from './Components/ErrorPage/ErrorPage';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home></Home>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: '/',
