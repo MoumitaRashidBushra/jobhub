@@ -13,7 +13,12 @@ const Header = () => {
             .then(data => setJobCategory(data))
     }, [])
 
+
     const featureds = useLoaderData();
+    // if (featureds.length > 4) {
+    //     featureds = featureds.slice(0, 4);
+    //     // showAll.classList.remove('d-none');
+    // }
     console.log(featureds);
     // const [jobFeatures, setJobFeature] = useState([])
     // useEffect(() => {
@@ -52,10 +57,13 @@ const Header = () => {
                     </div>
 
                     <div className='grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-4'>
+
                         {
+
                             jobCategorys.map(jobCategory => <JobCategoryList
                                 key={jobCategory.id}
                                 jobCategory={jobCategory}
+
                             ></JobCategoryList>)
                         }
 

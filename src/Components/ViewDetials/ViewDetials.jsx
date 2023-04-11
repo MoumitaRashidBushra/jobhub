@@ -1,10 +1,27 @@
-import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useLoaderData, useParams } from 'react-router-dom';
 import Footer from '../Footer/Footer';
 
 const ViewDetials = () => {
+    const [jobs, setJobs] = useState({})
     const details = useLoaderData();
-    console.log(details)
+    const id = useParams();
+    //console.log(id)
+
+
+
+    useEffect(() => {
+        if (details) {
+            const storeData = details.find(dt => dt.id == id.id)
+            setJobs(storeData);
+        }
+    }, [])
+
+
+
+    //console.log(jobs)
+
+
     return (
         <div>
             <div className=' bg-slate-100 mb-14 '>
@@ -14,18 +31,18 @@ const ViewDetials = () => {
             <div className='grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-14 lg:container lg:mx-auto px-5 lg:px-20 lg:pt-12 mb-14'>
                 <div className='col-span-3'>
                     <div>
-                        <span className=' text-black font-bold'>Job Description:</span> A UI/UX (User Interface/User Experience) designer is responsible for designing and creating engaging and effective interfaces for software and web applications. This includes designing the layout, visual design, and interactivity of the user interface.
+                        <span className=' text-black font-bold'>Job Description:</span>{jobs.jobdescription}
                     </div>
                     <div className='pt-8 pb-8'>
-                        <span className=' text-black font-bold'>Job Responsibility:</span> Collaborating with cross-functional teams: UI/UX designers often work closely with other teams, including product management, engineering, and marketing, to ensure that the user interface is aligned with business and technical requirements. You will need to be able to effectively communicate your design ideas and gather feedback from other team members.
+                        <span className=' text-black font-bold'>Job Responsibility:</span> {jobs.jobresponsibility}
                     </div>
                     <div>
                         <p className='pb-5  text-black font-bold'>Educational Requirements:</p>
-                        <p className='pb-5'>Bachelor degree to complete any reputational university.</p>
+                        <p className='pb-5'>{jobs.requirements}</p>
                     </div>
                     <div>
                         <p className='pb-4  text-black font-bold'>Experiences:</p>
-                        <p className='pb-10'>2-3 Years in this field.</p>
+                        <p className='pb-10'>{jobs.experiences}</p>
                     </div>
                 </div>
                 <div className='col-span-2 '>
@@ -37,15 +54,14 @@ const ViewDetials = () => {
                             </div>
                             <div>
                                 <h1 className='pt-4 font-bold'>Job Details</h1>
-                                <p className='pt-2 pb-5 '><span className='font-semibold'>Job Title :</span> Product Designer</p>
+                                <p className='pt-2 pb-5 '><span className='font-semibold'>Job Title :</span> {jobs.company}</p>
                                 <h1 className=' pb-4 font-bold'>Contact Information</h1>
                                 <hr />
                             </div>
                             <div>
-                                <p className='pt-4 pb-2 '><span className='font-semibold'>Phone :</span> 01750-00 00 00</p>
-                                <p className=' pb-2 '><span className='font-semibold'>Email : </span> info@gmail.com</p>
-                                <p className=' pb-8 '><span className='font-semibold'>Address :</span> Dhanmondi 32, Sukrabad
-                                    Dhaka, Bangladesh</p>
+                                <p className='pt-4 pb-2 '><span className='font-semibold'>Phone :</span> {jobs.phone}</p>
+                                <p className=' pb-2 '><span className='font-semibold'>Email : </span> {jobs.email}</p>
+                                <p className=' pb-8 '><span className='font-semibold'>Address :</span> {jobs.location}</p>
                             </div>
                         </div>
                     </div>
