@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '../Footer/Footer';
 
 const BlogP = () => {
     return (
@@ -24,6 +25,7 @@ const BlogP = () => {
                 <h1 className='text-2xl'>What is useMemo?</h1>
                 <p className='pb-8'>React's useMemo hook caches the calculated value of a function and returns the cached value on future renders if the inputs to the function have not changed. useMemo memoizes a function's output.Optimizing the speed of pricey calculations that are utilized as dependents in components is the goal of useMemo. The efficiency of an application can be improved by caching a computation's result to save having to recalculate it for each render.</p>
             </div>
+            <Footer></Footer>
         </div>
     );
 };

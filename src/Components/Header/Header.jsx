@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import JobCategoryList from '../JobCategoryList/JobCategoryList';
 import { Link, useLoaderData } from 'react-router-dom';
 import JobFeature from '../JobFeature/JobFeature';
+import Footer from '../Footer/Footer';
 
 const Header = () => {
 
@@ -86,6 +87,10 @@ const Header = () => {
                 <div className='text-center mb-11'>
                     <a className="btn btn-info  text-white">See All Jobs</a>
                 </div>
+            </section>
+
+            <section>
+                <Footer></Footer>
             </section>
 
         </div>
